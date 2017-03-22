@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1>Multitudes of Minutiae</h1>
+</div>
+<div id="nav">
+</div>
+
+<div id="featured">
+</div>
+
+<div id="posts">
+  {{#each model as |post|}}
+    {{post-tile post=post}}
+  {{/each}}
+</div>
