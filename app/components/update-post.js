@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend({ // see new-post for similar comments
   actions: {
     editingPost:false,
     showUpdatePostForm(){

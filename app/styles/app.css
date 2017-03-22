@@ -1,0 +1,11 @@
+img {
+  width:500px;
+  height:auto;
+}
+
+.post {
+  padding: 10px;
+  margin-bottom:25px;
+  border: 2px solid black;
+  border-radius:25px;
+}

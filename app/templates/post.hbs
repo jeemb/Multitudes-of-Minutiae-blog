@@ -1,3 +1,6 @@
 {{update-post post=model updatePost="updatePost"}}
+<!-- update-post component will show button and form for update params -->
 
 {{post-detail post=model destroyPost2 = "destroyPost3"}}
+<!-- list details for specific post. post info sent from current level as model to lower level as post. Destroy post information sent up from lower level as destroyPost2 and used on current level as destroyPost3.-->
+<!-- destroyPost2 is sent up WITH parameters of specified post, which is passed into destroyPost3 -->

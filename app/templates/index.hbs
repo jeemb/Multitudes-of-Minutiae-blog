@@ -6,6 +6,7 @@
 </div>
 
 <div id="posts">
+  <!-- each entry received by model call listed here by passing data into post-tile component-->
   {{#each model as |post|}}
     {{post-tile post1=post}}
   {{/each}}
