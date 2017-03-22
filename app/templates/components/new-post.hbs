@@ -1,33 +1,34 @@
-{{#if addNewPost}}
-<h3>Add New Post</h3>
+<div style="float:right;">
+  {{#if addNewPost}}
+  <form  class="new-post">
+    <h3>Add New Post</h3>
+    <div class="form-group">
+      <label for="title">Title</label>
+      {{input value=title id="title" class="form-control"}}
+    </div>
 
-<form class="new-post">
-  <div class="form-group">
-    <label for="title">Title</label>
-    {{input value=title id="title" class="form-control"}}
-  </div>
+    <div class="form-group">
+      <label for="author">Author</label>
+      {{input value=author id="author" class="form-control"}}
+    </div>
 
-  <div class="form-group">
-    <label for="author">Author</label>
-    {{input value=author id="author" class="form-control"}}
-  </div>
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      {{input value=image id="image" class="form-control"}}
+    </div>
 
-  <div class="form-group">
-    <label for="image">Image URL</label>
-    {{input value=image id="image" class="form-control"}}
-  </div>
+    <div class="form-group">
+      <label for="text">Text</label>
+      {{input value=text id="text" class="form-control"}}
+    </div>
 
-  <div class="form-group">
-    <label for="text">Text</label>
-    {{input value=text id="text" class="form-control"}}
-  </div>
-
-  <div class="form-group">
-    <label for="topic">Topic</label>
-    {{input value=topic id="topic" class="form-control"}}
-  </div>
-  <button {{action 'saveNewPost'}}>Complain</button>
-</form>
-{{else}}
-<button {{action 'showAddPostForm'}}>New Post</button>
-{{/if}}
+    <div class="form-group">
+      <label for="topic">Topic</label>
+      {{input value=topic id="topic" class="form-control"}}
+    </div>
+    <button {{action 'saveNewPost'}} class="btn btn-warning">Complain</button>
+  </form>
+  {{else}}
+  <button {{action 'showAddPostForm'}} class = "btn btn-success btn-xs">New Post</button>
+  {{/if}}
+</div>
