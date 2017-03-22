@@ -1,0 +1,33 @@
+{{#if editingPost}}
+<h3>Update "{{post.title}}"</h3>
+
+<form class="new-post">
+  <div class="form-group">
+    <label for="title">Title</label>
+    {{input value=title id="title" class="form-control" placeholder=title}}
+  </div>
+
+  <div class="form-group">
+    <label for="author">Author</label>
+    {{input value=author id="author" class="form-control" placeholder=author}}
+  </div>
+
+  <div class="form-group">
+    <label for="image">Image URL</label>
+    {{input value=image id="image" class="form-control" placeholder=image}}
+  </div>
+
+  <div class="form-group">
+    <label for="text">Text</label>
+    {{input value=text id="text" class="form-control" placeholder=text}}
+  </div>
+
+  <div class="form-group">
+    <label for="topic">Topic</label>
+    {{input value=topic id="topic" class="form-control" placeholder=topic}}
+  </div>
+  <button {{action 'updatePost' post}}>Complain again, but in a newer way.</button>
+</form>
+{{else}}
+<button {{action 'showUpdatePostForm'}}>Update</button>
+{{/if}}
