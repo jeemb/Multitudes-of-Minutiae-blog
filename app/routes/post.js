@@ -28,6 +28,20 @@ export default Ember.Route.extend({ // queries the database for a record called 
         return post.save();
       });
       this.transitionTo('post', post);
+    },
+    deleteComment(comment, post){
+      //post = comment.post
+      comment.destroyRecord();
+      this.transitionTo('post', post);
+    },
+    updateComment(comment, params){
+      Object.keys(params).forEach(function(key){
+        if(params[key]!==undefined){
+          comment.set(key,params[key]);
+        }
+      });
+      comment.save();
+      this.transitionTo("post", comment.post);
     }
   }
 });

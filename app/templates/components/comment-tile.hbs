@@ -1,4 +1,6 @@
 <div class="comment">
   <h3>{{comment.author}}</h3>
   <p>{{comment.content}}</p>
+  <button class="btn btn-xs btn-danger" {{action "deleteComment" comment post}}>Delete</button>
+
 </div>

@@ -6,3 +6,9 @@
 <!-- destroyPost2 is sent up WITH parameters of specified post, which is passed into destroyPost3 -->
 
 {{new-comment saveComment = "saveComment" post=model}}
+<div class="comments">
+  {{#each model.comments as |comment|}}
+    {{comment-tile comment=comment post=model deleteComment="deleteComment"}}
+    {{update-comment comment=comment post=model updateComment="updateComment"}}
+  {{/each}}
+</div>

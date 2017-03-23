@@ -3,9 +3,12 @@ img {
   height:auto;
 }
 
-.post {
+.post,.comment {
   padding: 10px;
   margin-bottom:25px;
   border: 2px solid black;
   border-radius:25px;
+}
+.comment h3 {
+  border-bottom:2px double lightgrey;
 }

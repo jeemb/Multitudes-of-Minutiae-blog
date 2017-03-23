@@ -1,0 +1,15 @@
+{{#if showUpdateForm}}
+  <form>
+    <div class="form-group">
+      <label for="author">New Author:</label>
+      {{input value=author id=author}}
+    </div>
+    <div class="form-group">
+      <label for="content">New Content:</label>
+      {{input value=content id=content}}
+    </div>
+    <button class="btn btn-warning" {{action "updateComment" comment}}>Edit</button>
+  </form>
+{{else}}
+  <button class="btn btn-md btn-warning"{{action "showUpdateCommentForm"}}>Edit</button>
+{{/if}}
