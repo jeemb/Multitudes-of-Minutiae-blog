@@ -7,7 +7,12 @@ export default Ember.Route.extend({ // queries the database for a record called 
 
   actions: { // access model with data passed up from components to delete record.
     destroyPost3(post) {
-      post.destroyRecord();
+      var comment_deletions = post.get('comments').map(function(comment) {
+        return comment.destroyRecord();
+      });
+      Ember.RSVP.all(comment_deletions).then(function() {
+        return post.destroyRecord();
+      });
       this.transitionTo('index');
     },
     updatePost(post, params){ // overwrites object keys with non-undefined parameters taken from update form and saves to database.
@@ -31,8 +36,6 @@ export default Ember.Route.extend({ // queries the database for a record called 
     },
     deleteComment(comment, post){
       // var post = JSON.parse(JSON.stringify(comment.post));
-      console.log(comment);
-      console.log(post);
       comment.destroyRecord();
       this.transitionTo('post', post);
     },
