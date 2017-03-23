@@ -6,12 +6,13 @@ export default Ember.Component.extend({
     showUpdateCommentForm(){
       this.set("showUpdateForm",true);
     },
-    updateComment(comment){
+    updateComment(comment, post){
       var params = {
         author: this.get("author"),
         content: this.get("content")
       };
-      this.sendAction("updateComment", comment, params);
+      this.set("showUpdateForm", false);
+      this.sendAction("updateComment", comment, params, post);
     }
   }
 });

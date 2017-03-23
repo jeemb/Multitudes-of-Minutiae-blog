@@ -22,7 +22,7 @@ export default Ember.Route.extend({ // queries the database for a record called 
     saveComment(params) {
       var newComment = this.store.createRecord('comment', params);
       var post = params.post;
-      console.log(post);
+
       post.get('comments').addObject(newComment);
       newComment.save().then(function() {
         return post.save();
@@ -30,18 +30,20 @@ export default Ember.Route.extend({ // queries the database for a record called 
       this.transitionTo('post', post);
     },
     deleteComment(comment, post){
-      //post = comment.post
+      // var post = JSON.parse(JSON.stringify(comment.post));
+      console.log(comment);
+      console.log(post);
       comment.destroyRecord();
       this.transitionTo('post', post);
     },
-    updateComment(comment, params){
+    updateComment(comment, params, post){
       Object.keys(params).forEach(function(key){
         if(params[key]!==undefined){
           comment.set(key,params[key]);
         }
       });
       comment.save();
-      this.transitionTo("post", comment.post);
+      this.transitionTo("post", post);
     }
   }
 });
