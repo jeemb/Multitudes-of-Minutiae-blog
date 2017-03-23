@@ -7,7 +7,13 @@
 
 <div id="posts">
   <!-- each entry received by model call listed here by passing data into post-tile component-->
-  {{#each model as |post|}}
+  {{#each model.posts as |post|}}
     {{post-tile post1=post}}
+  {{/each}}
+</div>
+
+<div id="recent_comments">
+  {{#each model.comments as |comment|}}
+    {{comment-tile comment1=comment}}
   {{/each}}
 </div>

@@ -5,5 +5,6 @@ export default DS.Model.extend({//sets attribues for ember "post" object
   image: DS.attr(),
   text: DS.attr(),
   title: DS.attr(),
-  topic: DS.attr()
+  topic: DS.attr(),
+  comments: DS.hasMany('comment', { async: true})
 });

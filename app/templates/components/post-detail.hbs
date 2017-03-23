@@ -6,4 +6,10 @@
   <p>{{post.text}}</p>
 </div>
 
+<div class="comments">
+  {{#each post.comments as |comment|}}
+    {{comment-tile comment=comment}}
+  {{/each}}
+</div>
+
 <button {{action 'destroyPost1' post}}>Delete</button>
