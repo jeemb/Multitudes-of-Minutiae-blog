@@ -24,15 +24,37 @@ export default Ember.Route.extend({ // queries the database for a record called 
       post.save();
       this.transitionTo('index');
     },
-    saveComment(params) {
-      var newComment = this.store.createRecord('comment', params);
-      var post = params.post;
+    saveComment(params, postPage) {
+      var post;
+      var parentComment;
+      var pageId=postPage.id;
+      var parent = params.parent;
 
-      post.get('comments').addObject(newComment);
-      newComment.save().then(function() {
-        return post.save();
-      });
-      this.transitionTo('post', post);
+      if (parent.get('constructor.modelName') === 'post') {
+        post = parent;
+        params.parentComment = null;
+      } else if(parent.get('constructor.modelName') === 'comment' ){
+        parentComment = parent;
+        params.post = null;
+      }
+      var newComment = this.store.createRecord('comment', params);
+      console.log(params.post);
+      console.log(params.parentComment);
+
+      if(parent.get('constructor.modelName') === 'post'){
+        post.get('comments').addObject(newComment);
+        newComment.save().then(function() {
+          console.log("replying to a post");
+          return post.save();
+        });
+      } else if(parent.get('constructor.modelName') === 'comment' ){
+        parentComment.get("replies").addObject(newComment);
+        newComment.save().then(function() {
+          console.log("replying to a comment");
+          return parentComment.save();
+        });
+      }
+      this.transitionTo('post', pageId);
     },
     deleteComment(comment, post){
       // var post = JSON.parse(JSON.stringify(comment.post));

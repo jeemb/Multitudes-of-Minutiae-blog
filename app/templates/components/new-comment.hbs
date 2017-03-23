@@ -10,8 +10,8 @@
     <label for="content">Comment</label>
     {{input value=content id="content"}}
   </div>
-  <button {{action 'saveComment'}}>Save</button>
+  <button {{action 'saveComment' parent}}>Save</button>
 </form>
 {{else}}
-  <button {{action 'commentFormShow'}}>Add New Comment</button>
+  <button {{action 'commentFormShow'}}>Reply</button>
 {{/if}}

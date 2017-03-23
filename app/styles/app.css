@@ -23,3 +23,7 @@ img {
 .comment h3 {
   border-bottom:2px double lightgrey;
 }
+.comment {
+  margin-bottom:0px;
+  margin-top: 25px;
+}

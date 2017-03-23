@@ -6,14 +6,14 @@ export default Ember.Component.extend({
     commentFormShow() {
       this.set('addNewComment', true);
     },
-    saveComment() {
+    saveComment(postPage) {
       var params = {
         author: this.get('author'),
         content: this.get('content'),
-        post: this.get('post')
+        parent: this.get('parent')
       };
       this.set('addNewComment', false);
-      this.sendAction('saveComment', params);
+      this.sendAction('saveComment', params, postPage);
     }
   }
 });

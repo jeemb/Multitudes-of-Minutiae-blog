@@ -2,5 +2,8 @@
   <h3>{{comment.author}}</h3>
   <p>{{comment.content}}</p>
   <button class="btn btn-xs btn-danger" {{action "deleteComment" comment post}}>Delete</button>
-
+  {{#each comment.replies as |reply|}}
+  {{comment-tile comment = reply post=post deleteComment="deleteComment" saveComment="saveComment"}}
+  {{new-comment saveComment = "saveComment" parent=reply}}
+  {{/each}}
 </div>

@@ -5,10 +5,12 @@
 <!-- list details for specific post. post info sent from current level as model to lower level as post. Destroy post information sent up from lower level as destroyPost2 and used on current level as destroyPost3.-->
 <!-- destroyPost2 is sent up WITH parameters of specified post, which is passed into destroyPost3 -->
 
-{{new-comment saveComment = "saveComment" post=model}}
+{{new-comment saveComment = "saveComment" parent=model}}
 <div class="comments">
   {{#each model.comments as |comment|}}
-    {{comment-tile comment=comment post=model deleteComment="deleteComment"}}
+    {{comment-tile comment=comment post=model deleteComment="deleteComment" saveComment="saveComment"}}
     {{update-comment comment=comment post=model updateComment="updateComment"}}
+
+    {{new-comment saveComment = "saveComment" parent=comment}}
   {{/each}}
 </div>
