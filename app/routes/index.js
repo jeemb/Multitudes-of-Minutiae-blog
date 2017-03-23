@@ -4,7 +4,7 @@ export default Ember.Route.extend({ //query database for all "post" objects & re
   model() {
     return Ember.RSVP.hash({
       posts: this.store.findAll("post"),
-      comments: this.store.findAll("comment")
+      comments: this.store.query("comment", {limitToLast:3})
     });
   },
   actions: { // action to create a new post ember object and save to database. Params have been sent up from lower-level component (new-post).

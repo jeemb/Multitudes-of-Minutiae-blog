@@ -1,3 +1,7 @@
+body {
+
+}
+
 img {
   width:500px;
   height:auto;
@@ -8,6 +12,13 @@ img {
   margin-bottom:25px;
   border: 2px solid black;
   border-radius:25px;
+}
+#recent_comments {
+  padding: 10px;
+  margin-bottom:25px;
+  border: 2px solid black;
+  border-radius:25px;
+  background: linear-gradient( 180deg, rgba(10, 0, 200, 0.4), rgba(10, 0, 200, 0.4), rgba(10, 0, 200, 0.4), rgba(10, 0, 200, 0.4), rgba(200, 0, 75, 0.4) );
 }
 .comment h3 {
   border-bottom:2px double lightgrey;
